@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import InnerHTML from "dangerously-set-html-content";
-
+import backgroundImage from "./asset/Image.jpeg"; 
+import backgroundImagecenter from "./asset/coinnew.jpeg"; 
 function App() {
   const [iframeKey, setIframeKey] = useState(0);
 
@@ -15,19 +15,32 @@ function App() {
   }
 
   return (
-    <div className="container mx-auto px-4">
-      <h1 className="text-8xl font-bold text-center my-6">
-        Project Jail Break
-      </h1>
-      <div className="bg-white shadow-md rounded-lg overflow-hidden">
-        <InnerHTML html={createEmbedMarkup().__html} />
+    <div
+      className="min-h-screen flex flex-col"
+      style={{
+        backgroundImage: `url(${backgroundImage})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+      }}
+    >
+      <div className="flex justify-between items-center py-4 px-4">
+        <h1 className="text-4xl font-bold text-white">
+          Project Jail Break
+        </h1>
+    
+        <button
+          onClick={refreshIframe}
+          className="bg-gray-300 hover:bg-gray-400 text-black font-bold py-2 px-4 rounded"
+        >
+          Refresh Iframe
+        </button>
       </div>
-      <button
-        onClick={refreshIframe}
-        className="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-      >
-        Refresh Iframe
-      </button>
+      <div className="flex-grow bg-white shadow-md rounded-lg overflow-hidden mb-0">
+        <div
+          key={iframeKey}
+          dangerouslySetInnerHTML={createEmbedMarkup()}
+        />
+      </div>
     </div>
   );
 }
