@@ -16,7 +16,7 @@ function App() {
 
   return (
     <div className="container mx-auto px-4">
-      <h1 className="text-3xl font-bold text-center my-6">
+      <h1 className="text-8xl font-bold text-center my-6">
         Project Jail Break
       </h1>
       <div className="bg-white shadow-md rounded-lg overflow-hidden">
